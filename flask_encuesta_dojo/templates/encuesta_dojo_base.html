@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block titulo%}{%endblock%}Demo Flask</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/encuesta_dojo.css') }}" type="text/css">
+    <script src="{{ url_for('static', filename='js/encuesta_dojo.js') }}"></script>
+</head>
+<body>
+  <div class="principal">
+    <div class ="cabecera">
+      <div id="divicon"><img id="iconapp" src="{{ url_for('static', filename= 'img/icon_codingdojo.png') }}" alt="imagen de icono no encontrado"></div>
+      <div class="titulo_formulario">{%block contenido1%}{%endblock%}</div>
+    </div>
+    <div class="cuerpo_formulario">
+      {% block contenido2 %}
+      {%endblock%}
+    </div>
+  </div>
+  <script>
+
+  </script>
+</body>
+</html>

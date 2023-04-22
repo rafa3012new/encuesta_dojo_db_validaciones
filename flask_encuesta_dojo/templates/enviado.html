@@ -1,0 +1,42 @@
+{% extends "encuesta_dojo_base.html" %}
+{% block titulo %}Encuesta Dojo{% endblock %}
+{% block contenido1 %}<h3>Informacion Enviada al {{hoy}}</h3>{% endblock %}
+{% block contenido2 %}
+   <div class="subformulario">
+    <div class="campo">
+      <p class="etiqueta">Nombre del Estudiante :</p>
+      <p class="contenido">{{encuestado.nombre}}</p>
+    </div>
+    <div class="campo">
+      <p class="etiqueta">Ubicacion Dojo :</p>
+      <p class="contenido">{{encuestado.ubicacion}}</p>
+    </div>
+    <div class="campo">
+      <p class="etiqueta">Idioma Favorito :</p>
+      <p class="contenido">{{encuestado.idioma}}</p>
+    </div>
+    <div class="campo">
+      <p class="etiqueta">Lenguaje de Programacion que domina :</p>
+      <ul class="lista_lenguajes_prog">
+      {#Se utiliza un ciclo for para descargar la variable de sesion de tipo array en un ul#}
+      {%for i in encuestado.lenguaje_prog%}
+        <li class="contenido">{{i}}</li>
+      {%endfor%}
+      </ul>
+    </div>
+    <div class="campo">
+      <p class="etiqueta">Edad :</p>
+      <p class="contenido">{{encuestado.edad}}</p>
+    </div>
+    <div class="campo">
+      <p class="etiqueta">Comentarios :</p>
+      <p class="contenido">{{encuestado.comentarios}}</p>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div>
+      <a href="/limpiar">Regresar</a>
+    </div>
+  </div>
+{% endblock %}

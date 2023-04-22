@@ -1,0 +1,117 @@
+{% extends "encuesta_dojo_base.html" %}
+{% block titulo %}Encuesta Dojo{% endblock %}
+{% block contenido1 %}<h1>Formulario de Introduccion de Datos</h1>{% endblock %}
+{% block contenido2 %}
+  <form action="/grabar" method="post" onsubmit="return handleData()">
+    <div>
+      <div><label for="nombre">Nombre del Estudiante</label></div>
+      <div><input type="text" name="nombre" id="nombre" required></div>
+    </div>
+    <div>
+      <div><label for="ubicacion">Ubicacion del Dojo</label></div>
+      <div>
+        <select name="ubicacion" id="ubicacion" required>
+          <option value="Estados Unidos">Estados Unidos</option>
+          <option value="Chile">Chile</option>
+          <option value="Mexico">Mexico</option>
+          <option value="Canada">Canada</option>
+          <option value="Argentina">Argentina</option>
+          <option value="Panama">Chile</option>
+          <option value="Australia">Australia</option>
+          <option value="Espana">Espana</option>
+          <option value="Inglaterra">Inglaterra</option>
+          <option value="Estados Unidos">Venezuela</option>
+          <option value="Chile">Corea del Sur</option>
+          <option value="Mexico">Japon</option>
+          <option value="Canada">China</option>
+          <option value="Argentina">Francia</option>
+          <option value="Panama">Alemania</option>
+          <option value="Australia">Suiza</option>
+          <option value="Espana">India</option>
+          <option value="Inglaterra">Sur Africa</option>
+        </select>
+      </div>
+    </div>
+    <div>
+     <div><label for="idioma">Idioma Favorito</label></div>
+     <div>
+        <select name="idioma" id="idioma" required>
+          <option value="Espanol">Espanol</option>
+          <option value="Ingles">Ingles</option>
+          <option value="Frances">Frances</option>
+          <option value="Italiano">Italiano</option>
+          <option value="Aleman">Aleman</option>
+          <option value="Ruso">Ruso</option>
+          <option value="Japones">Japones</option>
+          <option value="Chino">Chino</option>
+          <option value="Portugues">Portugues</option>
+          <option value="Portugues">Arabe</option>
+          <option value="Portugues">Coreano</option>
+          <option value="Portugues">Turco</option>
+          <option value="Portugues">African</option>
+          <option value="Portugues">Holandes</option>
+          <option value="Portugues">Hindi</option>
+        </select>
+      </div>
+    </div>
+
+     <div>
+      <div><label for="lenguaje_prog[]">Lenguaje de Programacion que domina</label></div>
+      <div id="groupcontainer">
+        <fieldset>
+          <legend>Elija uno o varios:</legend>
+          <div id="divlabelgroup">
+            <label for="python">Python</label>
+            <label for="javascript">Javascript</label>
+            <label for="c#">C#</label>
+            <label for="java">Java</label>
+            <label for="go">GO</label>
+            <label for="ruby">Ruby</label>
+            <label for="c++">C++</label>
+            <label for="php">Php</label>
+            <label for="kotlin">Kotlin</label>
+          </div>
+          <div id="divgroup">
+            {#Se utiliza una variable de tipo array_input[] para subirla con el metodo post al server#}
+            <input type="checkbox" id="python" name="lenguaje_prog[]" value="python" checked>
+            <input type="checkbox" id="javascript" name="lenguaje_prog[]" value="javascript">
+            <input type="checkbox" id="c#" name="lenguaje_prog[]" value="c#">
+            <input type="checkbox" id="java" name="lenguaje_prog[]" value="java">
+            <input type="checkbox" id="go" name="lenguaje_prog[]" value="go">
+            <input type="checkbox" id="ruby" name="lenguaje_prog[]" value="ruby">
+            <input type="checkbox" id="c++" name="lenguaje_prog[]" value="c++">
+            <input type="checkbox" id="php" name="lenguaje_prog[]" value="php">
+            <input type="checkbox" id="kotlin" name="lenguaje_prog[]" value="kotlin">
+          </div>
+        </fieldset>
+       </div>
+     </div>
+
+     <div>
+      <div><label for="edad">Seleccione su edad</label></div>
+      <div id="groupcontainer">
+        <fieldset>
+          <legend>Elija una opcion:</legend>
+          <div id="divlabelgroup">
+            <label for="young">0 - 29</label>
+            <label for="adult">30 - 59</label>
+            <label for="old">60 - ...</label>
+          </div>
+          <div id="divgroup">
+            <input type="radio" id="young" name="edad" value="29" checked>
+            <input type="radio" id="adult" name="edad" value="30">
+            <input type="radio" id="old" name="edad" value="60">
+          </div>
+        </fieldset>
+       </div>
+     </div>
+
+    <div>
+      <div><label for="comentarios">Comentarios</label></div>
+      <div><textarea id="comentarios" name="comentarios" rows="4" cols="50" style="resize:none;"></textarea></div>
+    </div>
+    <div class="divboton">
+        <button type="submmit">Enviar</button>
+    </div>
+  </form>
+{% endblock %}
